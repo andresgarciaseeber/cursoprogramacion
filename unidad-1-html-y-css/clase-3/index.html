@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Nuestro Formulario</h1>
+    <form action="">
+        <div>
+            <label for="user">Escriba el nombre de usuario: </label>
+            <input type="text" id="user" required placeholder="ej. andres385">
+        </div>
+        <div>
+            <label for="password">Contraseña: </label>
+            <input type="password" name="password" id="password" required minlength="8" maxlength="12">
+        </div>
+        <div>
+            <button type="submit">Enviar</button>
+        </div>
+
+
+        <div>
+            <label for="region">Seleccioná una región</label>
+            <select name="region" id="region">
+                <option value="SA">Sudamérica</option>
+                <option value="NA">Norteamérica</option>
+                <option value="EE">Europa del Este</option>
+                <option value="SA">Sudamérica</option>
+            </select>
+        </div>
+
+        <div>
+            <textarea cols="10" rows="10" id="" name="">Escribir</textarea>
+        </div>
+    </form>
+</body>
+</html>
