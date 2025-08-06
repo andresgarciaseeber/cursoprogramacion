@@ -1,0 +1,27 @@
+/* Sintaxis de CSS */
+        /* CSS tiene selectores */
+        /* Quiero hacer que los botones sean de color de fondo azul */
+        /* Podemos usar el selector de elementos */
+        button{
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+        }
+        body{
+            background-color: rgb(201, 201, 201);
+        }
+        /* Selector de clase */
+        .boton-principal{
+            background-color: blueviolet;
+            color: white;
+            width: 150px;
+            height: 50px;
+            border-radius: 10px;
+        }
+        .boton-secundario{
+            background-color: transparent;
+            border-radius: 10px;
+            width: 150px;
+            height: 50px;
+            color: blueviolet;
+        }
