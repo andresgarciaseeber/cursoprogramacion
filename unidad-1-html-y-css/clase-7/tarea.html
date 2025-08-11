@@ -30,82 +30,242 @@
     </header>
     <main>
         <section>
-            <h1>Tarea</h1>
+            <h1>Tarea - CSS y Flexbox</h1>
             <p class="description">
-                Imitamos una sección de Mercado Libre
+                Imitamos un Carousel de Mercado Libre
             </p>
 
             <!-- Sección de historial estilo MercadoLibre -->
-            <div class="history-section">
+            <div class="row container history">
                 <div class="section-header">
                     <h2>Más vendidos en la Historia de Bicicletas</h2>
                     <a href="#" class="view-history">Ver todas las bicicletas</a>
                 </div>
 
-                <section class="carousel-container">
-                    <div class="carousel-controls">
-                        <button class="carousel-btn carousel-btn--prev" disabled>
-                            <span>‹</span>
+                <section aria-label="Más vendidos en bicicletas" aria-roledescription="Carrusel"
+                    class="carousel-container">
+                    <!-- Indicadores de paginación -->
+                    <div class="carousel-header">
+                        <ul class="carousel-pagination" aria-hidden="true">
+                            <li class="pagination-item active">
+                                <button class="pagination-btn" tabindex="-1" type="button">
+                                    <span class="visually-hidden">Página 1</span>
+                                </button>
+                            </li>
+                            <li class="pagination-item">
+                                <button class="pagination-btn" tabindex="-1" type="button">
+                                    <span class="visually-hidden">Página 2</span>
+                                </button>
+                            </li>
+                            <li class="pagination-item">
+                                <button class="pagination-btn" tabindex="-1" type="button">
+                                    <span class="visually-hidden">Página 3</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="carousel-controls-wrapper">
+                        <button class="carousel-btn carousel-btn--prev" name="carousel-control" data-control="previous"
+                            type="button" aria-label="Anterior" disabled>
+                            <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32"
+                                fill="rgba(0, 0, 0, 0.9)">
+                                <path
+                                    d="M20.0549 6.99999L11.0596 15.9953L20.0642 25L19.0036 26.0607L8.93823 15.9953L18.9942 5.93933L20.0549 6.99999Z" />
+                            </svg>
                         </button>
 
                         <div class="carousel-wrapper">
                             <div class="carousel-slides">
-                                <article class="product-card">
-                                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
-                                        alt="Guitarra Acústica">
-                                    <div class="product-info">
-                                        <a href="#" class="product-title">Guitarra Acústica Clásica 6 Cuerdas Madera
-                                            Natural</a>
+                                <div role="group" class="carousel-slide active" aria-label="1 de 6">
+                                    <div class="navigation-slide">
+                                        <div class="card-item-wrapper">
+                                            <article class="card-item">
+                                                <div class="product-image-container">
+                                                    <img 
+                                                        src="https://images.unsplash.com/photo-1502744688674-c619d1586c9e"
+                                                        alt="Bicicleta Mountain Bike 21 Velocidades">
+                                                    <div class="product-badge">MÁS VENDIDO</div>
+                                                </div>
+                                                <div class="card-item-content">
+                                                    <a href="#" class="card-item-title">Bicicleta Mountain Bike Rodado
+                                                        26 21 Velocidades Frenos Disco</a>
+                                                    <div class="product-price">
+                                                        <span class="price-current">$89.999</span>
+                                                        <span class="price-original">$120.000</span>
+                                                        <span class="discount">25% OFF</span>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <span class="shipping-free">Envío gratis</span>
+                                                    </div>
+                                                    <div class="product-rating">
+                                                        <span class="stars">★★★★☆</span>
+                                                        <span class="rating-text">(247)</span>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
-                                </article>
+                                </div>
 
-                                <article class="product-card">
-                                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64"
-                                        alt="Laptop Gaming">
-                                    <div class="product-info">
-                                        <a href="#" class="product-title">Laptop Gaming Intel Core i7 16GB RAM 512GB
-                                            SSD</a>
+                                <div role="group" class="carousel-slide" aria-label="2 de 6">
+                                    <div class="navigation-slide">
+                                        <div class="card-item-wrapper">
+                                            <article class="card-item">
+                                                <div class="product-image-container">
+                                                    <img 
+                                                        src="https://images.unsplash.com/photo-1502744688674-c619d1586c9e"
+                                                        alt="Bicicleta Urbana Vintage">
+                                                    <div class="product-badge new">NUEVO</div>
+                                                </div>
+                                                <div class="card-item-content">
+                                                    <a href="#" class="card-item-title">Bicicleta Urbana Vintage Retro
+                                                        Paseo Ciudad Dama</a>
+                                                    <div class="product-price">
+                                                        <span class="price-current">$65.500</span>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <span class="shipping-free">Envío gratis</span>
+                                                        <span class="shipping-fast">Llega mañana</span>
+                                                    </div>
+                                                    <div class="product-rating">
+                                                        <span class="stars">★★★★★</span>
+                                                        <span class="rating-text">(89)</span>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
-                                </article>
+                                </div>
 
-                                <article class="product-card">
-                                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f"
-                                        alt="Zapatillas Running">
-                                    <div class="product-info">
-                                        <a href="#" class="product-title">Zapatillas Running Deportivas
-                                            Profesionales</a>
+                                <div role="group" class="carousel-slide" aria-label="3 de 6">
+                                    <div class="navigation-slide">
+                                        <div class="card-item-wrapper">
+                                            <article class="card-item">
+                                                <div class="product-image-container">
+                                                    <img 
+                                                        src="https://images.unsplash.com/photo-1571068316344-75bc76f77890"
+                                                        alt="Bicicleta Eléctrica">
+                                                </div>
+                                                <div class="card-item-content">
+                                                    <a href="#" class="card-item-title">Bicicleta Eléctrica Plegable
+                                                        350W Batería Litio</a>
+                                                    <div class="product-price">
+                                                        <span class="price-current">$245.999</span>
+                                                        <span class="price-installments">12 cuotas de $20.500</span>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <span class="shipping-paid">Envío a acordar</span>
+                                                    </div>
+                                                    <div class="product-rating">
+                                                        <span class="stars">★★★★☆</span>
+                                                        <span class="rating-text">(156)</span>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
-                                </article>
+                                </div>
 
-                                <article class="product-card">
-                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
-                                        alt="Zapatillas Nike">
-                                    <div class="product-info">
-                                        <a href="#" class="product-title">Zapatillas Nike Air Max Blancas Originales</a>
+                                <div role="group" class="carousel-slide" aria-label="4 de 6">
+                                    <div class="navigation-slide">
+                                        <div class="card-item-wrapper">
+                                            <article class="card-item">
+                                                <div class="product-image-container">
+                                                    <img
+                                                        src="https://images.unsplash.com/photo-1502744688674-c619d1586c9e"
+                                                        alt="Bicicleta BMX">
+                                                    <div class="product-badge featured">DESTACADO</div>
+                                                </div>
+                                                <div class="card-item-content">
+                                                    <a href="#" class="card-item-title">Bicicleta BMX Freestyle Rodado
+                                                        20 Acrobacias</a>
+                                                    <div class="product-price">
+                                                        <span class="price-current">$42.990</span>
+                                                        <span class="price-original">$55.000</span>
+                                                        <span class="discount">22% OFF</span>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <span class="shipping-free">Envío gratis</span>
+                                                    </div>
+                                                    <div class="product-rating">
+                                                        <span class="stars">★★★★★</span>
+                                                        <span class="rating-text">(324)</span>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
-                                </article>
+                                </div>
 
-                                <article class="product-card">
-                                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45"
-                                        alt="Smartphone">
-                                    <div class="product-info">
-                                        <a href="#" class="product-title">Smartphone Android 128GB Cámara 48MP</a>
+                                <div role="group" class="carousel-slide" aria-label="5 de 6">
+                                    <div class="navigation-slide">
+                                        <div class="card-item-wrapper">
+                                            <article class="card-item">
+                                                <div class="product-image-container">
+                                                    <img 
+                                                        src="https://images.unsplash.com/photo-1502744688674-c619d1586c9e"
+                                                        alt="Bicicleta Ruta">
+                                                </div>
+                                                <div class="card-item-content">
+                                                    <a href="#" class="card-item-title">Bicicleta Ruta Carbono Shimano
+                                                        105 Profesional</a>
+                                                    <div class="product-price">
+                                                        <span class="price-current">$189.999</span>
+                                                        <span class="price-installments">18 cuotas de $10.555</span>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <span class="shipping-free">Envío gratis</span>
+                                                        <span class="shipping-fast">Llega hoy</span>
+                                                    </div>
+                                                    <div class="product-rating">
+                                                        <span class="stars">★★★★★</span>
+                                                        <span class="rating-text">(78)</span>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
-                                </article>
+                                </div>
 
-                                <article class="product-card">
-                                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
-                                        alt="Auriculares">
-                                    <div class="product-info">
-                                        <a href="#" class="product-title">Auriculares Bluetooth Inalámbricos Cancelación
-                                            Ruido</a>
+                                <div role="group" class="carousel-slide" aria-label="6 de 6">
+                                    <div class="navigation-slide">
+                                        <div class="card-item-wrapper">
+                                            <article class="card-item">
+                                                <div class="product-image-container">
+                                                    <img 
+                                                        src="https://images.unsplash.com/photo-1502744688674-c619d1586c9e"
+                                                        alt="Bicicleta Infantil">
+                                                    <div class="product-badge kids">NIÑOS</div>
+                                                </div>
+                                                <div class="card-item-content">
+                                                    <a href="#" class="card-item-title">Bicicleta Infantil Rodado 16 Con
+                                                        Rueditas Seguridad</a>
+                                                    <div class="product-price">
+                                                        <span class="price-current">$28.500</span>
+                                                    </div>
+                                                    <div class="shipping-info">
+                                                        <span class="shipping-free">Envío gratis</span>
+                                                    </div>
+                                                    <div class="product-rating">
+                                                        <span class="stars">★★★★☆</span>
+                                                        <span class="rating-text">(412)</span>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
                                     </div>
-                                </article>
+                                </div>
                             </div>
                         </div>
 
-                        <button class="carousel-btn carousel-btn--next">
-                            <span>›</span>
+                        <button class="carousel-btn carousel-btn--next" name="carousel-control" data-control="next"
+                            type="button" aria-label="Siguiente">
+                            <svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32"
+                                fill="rgba(0, 0, 0, 0.9)">
+                                <path
+                                    d="M11.943 6.99999L20.9383 15.9953L11.9336 25L12.9943 26.0607L23.0596 15.9953L13.0036 5.93933L11.943 6.99999Z" />
+                            </svg>
                         </button>
                     </div>
                 </section>
