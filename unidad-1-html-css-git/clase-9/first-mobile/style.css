@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mozilla+Text:wght@200..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
+}
+
+
+main {
+    min-height: 100vh;
+}
+
+.section-cards {
+    display: flex;
+    flex-direction: column;
+    background-color: blueviolet;
+} 
+
+.section-cards .card {
+    background-color: rgb(178, 142, 211);
+    padding: 16px;
+    height: 300px;
+    gap: 50px;
+}
+
+
+
+@media screen (min-width:1500px) {
+    
+}

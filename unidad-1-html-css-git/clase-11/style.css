@@ -1,0 +1,52 @@
+/*
+ANIMACIONES
+*/
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: black;
+}
+
+.banner {
+    border: 1px solid white;
+    border-radius: 8px;
+    height: 200px;
+    width: 450px;
+    max-width: 100%;
+    margin: 20px auto;
+    background-color: red;
+    cursor: pointer;
+    transition: 300ms linear;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.banner:hover {
+    transform: scale(1.05);
+    transition: 300ms linear;
+    background-color: green;
+
+}
+
+.banner:hover .banner__img {
+    position: absolute;
+    right: -40px;
+
+}
+
+.banner:hover .banner__img {
+    position: absolute;
+    right: -180px;
+    transition: 800ms ease-out;
+
+}
