@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos en JavaScript - Ejemplos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Objetos en JavaScript</h1>
+        <p class="subtitle">Ejemplos interactivos basados en tu clase</p>
+
+        <!-- EJEMPLO 1: Tienda de Items -->
+        <div class="section">
+            <h2>📦 Ejemplo 1: Tienda de Items</h2>
+            <p>Simulación de una tienda donde puedes comprar items si tienes suficiente dinero.</p>
+            
+            <div class="card">
+                <strong>Personaje:</strong> <span id="nombrePersonaje">Héroe</span><br>
+                <strong>Dinero:</strong> <span id="dineroPersonaje">1000</span> monedas<br>
+                <strong>Item equipado:</strong> <span id="itemEquipado">Ninguno</span>
+            </div>
+
+            <div class="input-group">
+                <select id="itemComprar">
+                    <option value="espada">Espada (200 monedas)</option>
+                    <option value="baculo">Báculo Negro (5000 monedas)</option>
+                    <option value="arco">Arco Endemoniado (100000 monedas)</option>
+                </select>
+                <button onclick="comprarItem()">💰 Comprar Item</button>
+            </div>
+
+            <div class="output" id="output1">Selecciona un item y haz click en comprar...</div>
+        </div>
+
+        <!-- EJEMPLO 2: Sistema de Inventario -->
+        <div class="section">
+            <h2>🎒 Ejemplo 2: Inventario Completo</h2>
+            <p>Un personaje puede tener múltiples items en un inventario (array de objetos).</p>
+            
+            <button onclick="agregarItemAleatorio()">➕ Agregar Item Aleatorio</button>
+            <button onclick="mostrarInventario()">📋 Ver Inventario</button>
+            <button onclick="calcularValorTotal()">💎 Calcular Valor Total</button>
+            <button onclick="limpiarInventario()">🗑️ Limpiar Inventario</button>
+
+            <div class="output" id="output2">Presiona un botón para interactuar con el inventario...</div>
+        </div>
+
+        <!-- EJEMPLO 3: Combate entre Personajes -->
+        <div class="section">
+            <h2>⚔️ Ejemplo 3: Sistema de Combate</h2>
+            <p>Dos personajes combaten. El daño depende del nivel y el item equipado.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="card">
+                    <strong>Héroe</strong><br>
+                    Vida: <span id="vidaHeroe">100</span><br>
+                    Nivel: <span id="nivelHeroe">1</span>
+                </div>
+                <div class="card">
+                    <strong>Villano</strong><br>
+                    Vida: <span id="vidaVillano">400</span><br>
+                    Nivel: <span id="nivelVillano">12</span>
+                </div>
+            </div>
+
+            <button onclick="atacarVillano()">👊 Héroe Ataca</button>
+            <button onclick="atacarHeroe()">💀 Villano Ataca</button>
+            <button onclick="reiniciarCombate()">🔄 Reiniciar</button>
+
+            <div class="output" id="output3">¡Que comience la batalla!</div>
+        </div>
+
+        <!-- EJEMPLO 4: Métodos en Objetos -->
+        <div class="section">
+            <h2>🔧 Ejemplo 4: Objetos con Métodos</h2>
+            <p>Los objetos pueden tener funciones propias (métodos).</p>
+            
+            <button onclick="crearMascota()">🐕 Crear Mascota</button>
+            <button onclick="alimentarMascota()">🍖 Alimentar</button>
+            <button onclick="jugarConMascota()">🎾 Jugar</button>
+            <button onclick="estadoMascota()">📊 Ver Estado</button>
+
+            <div class="output" id="output4">Crea una mascota para comenzar...</div>
+        </div>
+    </div>
+   <script src="script.js"></script>
+</body>
+</html>
