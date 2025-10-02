@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays - Profundización Completa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #4ec9b0;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #9cdcfe;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .info-box {
+            background: #252526;
+            border-left: 4px solid #4ec9b0;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .section {
+            background: #252526;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border: 1px solid #3e3e42;
+        }
+
+        .section h2 {
+            color: #569cd6;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .section h3 {
+            color: #dcdcaa;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+
+        .code-example {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 3px solid #569cd6;
+            overflow-x: auto;
+        }
+
+        .code-example pre {
+            color: #d4d4d4;
+            font-size: 0.95em;
+        }
+
+        .keyword {
+            color: #569cd6;
+        }
+
+        .string {
+            color: #ce9178;
+        }
+
+        .number {
+            color: #b5cea8;
+        }
+
+        .comment {
+            color: #6a9955;
+        }
+
+        .function {
+            color: #dcdcaa;
+        }
+
+        .property {
+            color: #9cdcfe;
+        }
+
+        button {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1em;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #1177bb;
+        }
+
+        .output {
+            background: #1e1e1e;
+            border: 1px solid #4ec9b0;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            min-height: 50px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .output-line {
+            margin: 5px 0;
+            color: #4ec9b0;
+        }
+
+        .error {
+            color: #f48771;
+        }
+
+        .success {
+            color: #4ec9b0;
+        }
+
+        .warning {
+            color: #dcdcaa;
+        }
+
+        .interactive-zone {
+            background: #2d2d30;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        input[type="text"], input[type="number"] {
+            background: #1e1e1e;
+            border: 1px solid #3e3e42;
+            color: #d4d4d4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: inherit;
+            margin: 5px;
+            width: 200px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #0e639c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-left: 5px;
+        }
+
+        .mutable {
+            background: #f48771;
+        }
+
+        .immutable {
+            background: #4ec9b0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Arrays en JavaScript - Profundización Completa</h1>
+        <p class="subtitle">Basado en la clase magistral - Con ejemplos prácticos y output en consola</p>
+
+        <div class="info-box">
+            <strong style="color: #4ec9b0;">💡 Instrucciones:</strong><br>
+            - Abre la consola del navegador (F12) para ver todos los console.log()<br>
+            - Haz clic en los botones para ejecutar ejemplos interactivos<br>
+            - Todos los ejemplos están basados en el código de la clase
+        </div>
+
+        <!-- SECCIÓN 1: Introducción -->
+        <div class="section">
+            <h2>1️⃣ ¿Qué son los Arrays?</h2>
+            <p>Los arrays nos permiten <strong>enlistar datos de forma ordenada</strong>. También se llaman: Listas, Arreglos, Matrices o Colecciones.</p>
+            
+            <div class="code-example">
+                <pre><span class="comment">// En lugar de crear variables individuales:</span>
+<span class="keyword">let</span> nombre_1 = <span class="string">'pepe'</span>
+<span class="keyword">let</span> nombre_2 = <span class="string">'juan'</span>
+<span class="keyword">let</span> nombre_3 = <span class="string">'maria'</span>
+
+<span class="comment">// Usamos un ARRAY:</span>
+<span class="keyword">let</span> nombres = [<span class="string">'pepe'</span>, <span class="string">'juan'</span>, <span class="string">'maria'</span>]
+<span class="comment">//              Índice:  0        1        2</span></pre>
+            </div>
+
+            <button onclick="ejemplo_basico()">▶ Ejecutar Ejemplo Básico</button>
+            <div id="output-basico" class="output"></div>
+        </div>
+
+        <!-- SECCIÓN 2: Índices -->
+        <div class="section">
+            <h2>2️⃣ Accediendo a Elementos - Índices</h2>
+            <p>Para acceder a un elemento del array debemos conocer su <strong>ÍNDICE</strong> (que empieza en 0)</p>
+
+            <div class="code-example">
+                <pre><span class="keyword">let</span> operaciones_disponibles = [<span class="string">'+'</span>, <span class="string">'-'</span>, <span class="string">'*'</span>, <span class="string">'/'</span>]
+<span class="comment">//                         Índice: 0    1    2    3</span>
+
+<span class="keyword">let</span> indice_multiplicacion = <span class="number">2</span>
+<span class="function">console.log</span>(operaciones_disponibles[indice_multiplicacion]) <span class="comment">// '*'</span></pre>
+            </div>
+
+            <button onclick="ejemplo_indices()">▶ Ver Ejemplos de Índices</button>
+            <div id="output-indices" class="output"></div>
+        </div>
+
+        <!-- SECCIÓN 3: Tipos de Datos -->
+        <div class="section">
+            <h2>3️⃣ Arrays con Diferentes Tipos de Datos</h2>
+            <p>Los arrays pueden contener <strong>cualquier tipo de dato</strong>: strings, números, objetos, e incluso otros arrays.</p>
+
+            <div class="grid-2">
+                <div>
+                    <h3>Array de Números</h3>
+                    <div class="code-example">
+                        <pre><span class="keyword">let</span> notas = [<span class="number">9</span>, <span class="number">6</span>, <span class="number">8</span>]</pre>
+                    </div>
+                </div>
+                <div>
+                    <h3>Array Mixto</h3>
+                    <div class="code-example">
+                        <pre><span class="keyword">let</span> mixto = [<span class="number">90</span>, <span class="string">'pepe'</span>, <span class="keyword">true</span>]</pre>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Array de Objetos (MUY IMPORTANTE)</h3>
+            <div class="code-example">
+                <pre><span class="keyword">let</span> personas = [
+    {
+        nombre: <span class="string">'pepesito'</span>,
+        edad: <span class="number">43</span>
+    },
+    {
+        nombre: <span class="string">'maria'</span>,
+        edad: <span class="number">32</span>
+    }
+]
+
+<span class="comment">// Acceder a maria:</span>
+<span class="keyword">let</span> maria = personas[<span class="number">1</span>]
+<span class="function">console.log</span>(maria.edad) <span class="comment">// 32</span></pre>
+            </div>
+
+            <button onclick="ejemplo_tipos()">▶ Ejecutar Ejemplos de Tipos</button>
+            <div id="output-tipos" class="output"></div>
+        </div>
+
+        <!-- SECCIÓN 4: Propiedad length -->
+        <div class="section">
+            <h2>4️⃣ Propiedad .length</h2>
+            <p>Los arrays guardan internamente su <strong>longitud</strong> a la cual podemos acceder con <code>.length</code></p>
+
+            <div class="code-example">
+                <pre><span class="keyword">let</span> frutas = [<span class="string">'manzana'</span>, <span class="string">'banana'</span>, <span class="string">'naranja'</span>]
+<span class="function">console.log</span>(frutas.<span class="property">length</span>) <span class="comment">// 3</span></pre>
+            </div>
+
+            <button onclick="ejemplo_length()">▶ Ver Ejemplos de .length</button>
+            <div id="output-length" class="output"></div>
+        </div>
+
+        <!-- SECCIÓN 5: Métodos Mutables -->
+        <div class="section">
+            <h2>5️⃣ Métodos MUTABLES (Modifican el array original)</h2>
+            <p>Estos métodos <strong>cambian el array en memoria</strong></p>
+
+            <h3>.push() <span class="badge mutable">MUTABLE</span> <span class="badge">MÁS POPULAR</span></h3>
+            <p>Agrega un elemento al FINAL del array</p>
+            <div class="interactive-zone">
+                <input type="text" id="push-input" placeholder="Elemento a agregar">
+                <button onclick="ejemplo_push()">▶ Hacer .push()</button>
+                <div id="output-push" class="output"></div>
+            </div>
+
+            <h3>.pop() <span class="badge mutable">MUTABLE</span></h3>
+            <p>Elimina el ÚLTIMO elemento del array</p>
+            <button onclick="ejemplo_pop()">▶ Hacer .pop()</button>
+            <div id="output-pop" class="output"></div>
+
+            <h3>.shift() <span class="badge mutable">MUTABLE</span></h3>
+            <p>Elimina el PRIMER elemento del array</p>
+            <button onclick="ejemplo_shift()">▶ Hacer .shift()</button>
+            <div id="output-shift" class="output"></div>
+
+            <h3>.unshift() <span class="badge mutable">MUTABLE</span></h3>
+            <p>Agrega un elemento al INICIO del array</p>
+            <button onclick="ejemplo_unshift()">▶ Hacer .unshift()</button>
+            <div id="output-unshift" class="output"></div>
+
+            <h3>.splice() <span class="badge mutable">MUTABLE</span></h3>
+            <p>Permite recortar y agregar elementos al array</p>
+            <div class="code-example">
+                <pre><span class="comment">// Parámetros de .splice():</span>
+<span class="comment">// 1º) posición desde donde recortar</span>
+<span class="comment">// 2º) cuántos elementos recortar</span>
+<span class="comment">// 3º) qué elemento agregar (opcional)</span>
+
+<span class="keyword">let</span> nombres = [<span class="string">'pepe'</span>, <span class="string">'juan'</span>, <span class="string">'maria'</span>]
+nombres.<span class="function">splice</span>(<span class="number">1</span>, <span class="number">1</span>) <span class="comment">// Elimina 'juan'</span></pre>
+            </div>
+            <button onclick="ejemplo_splice()">▶ Ver Ejemplos de .splice()</button>
+            <div id="output-splice" class="output"></div>
+        </div>
+
+        <!-- SECCIÓN 6: Métodos NO Mutables -->
+        <div class="section">
+            <h2>6️⃣ Métodos NO MUTABLES (No modifican el array original)</h2>
+
+            <h3>.indexOf() <span class="badge immutable">NO MUTABLE</span></h3>
+            <p>Busca el ÍNDICE de un elemento</p>
+            <div class="code-example">
+                <pre><span class="keyword">let</span> nombres = [<span class="string">'pepe'</span>, <span class="string">'juan'</span>, <span class="string">'maria'</span>]
+<span class="keyword">let</span> indice_de_juan = nombres.<span class="function">indexOf</span>(<span class="string">'juan'</span>)
+<span class="function">console.log</span>(indice_de_juan) <span class="comment">// 1</span></pre>
+            </div>
+            <button onclick="ejemplo_indexOf()">▶ Ejecutar .indexOf()</button>
+            <div id="output-indexOf" class="output"></div>
+
+            <h3>.includes() <span class="badge immutable">NO MUTABLE</span></h3>
+            <p>Verifica si un elemento existe en el array</p>
+            <div class="code-example">
+                <pre><span class="keyword">let</span> url = [<span class="string">'http://'</span>, <span class="string">'musimundo.com'</span>, <span class="string">'/page/1'</span>]
+<span class="keyword">let</span> is_http_url = url.<span class="function">includes</span>(<span class="string">'http://'</span>)
+<span class="function">console.log</span>(is_http_url) <span class="comment">// true</span></pre>
+            </div>
+            <button onclick="ejemplo_includes()">▶ Ejecutar .includes()</button>
+            <div id="output-includes" class="output"></div>
+        </div>
+
+        <!-- SECCIÓN 7: Caso Práctico - Eliminar por ID -->
+        <div class="section">
+            <h2>7️⃣ Caso Práctico: Eliminar Producto por ID</h2>
+            <p>Ejemplo completo de la clase - Combinando indexOf y splice</p>
+
+            <div class="code-example">
+                <pre><span class="keyword">let</span> productos = [
+    { nombre: <span class="string">'TV 32"'</span>, precio: <span class="number">3000</span>, id: <span class="number">1</span> },
+    { nombre: <span class="string">'TV 40"'</span>, precio: <span class="number">4000</span>, id: <span class="number">2</span> },
+    { nombre: <span class="string">'TV 50"'</span>, precio: <span class="number">5000</span>, id: <span class="number">3</span> }
+]
+
+<span class="keyword">function</span> <span class="function">eliminarProductoPorId</span>(id) {
+    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i < productos.length; i++) {
+        <span class="keyword">let</span> producto = productos[i]
+        <span class="keyword">if</span> (id === producto.id) {
+            <span class="keyword">let</span> posicion = productos.<span class="function">indexOf</span>(producto)
+            productos.<span class="function">splice</span>(posicion, <span class="number">1</span>)
+            <span class="keyword">return true</span>
+        }
+    }
+    <span class="keyword">return null</span>
+}</pre>
+            </div>
+
+            <div class="interactive-zone">
+                <label>ID a eliminar: </label>
+                <input type="number" id="id-eliminar" min="1" max="5" value="2">
+                <button onclick="ejemplo_eliminarPorId()">▶ Eliminar Producto</button>
+                <div id="output-eliminar" class="output"></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 8: Caso Práctico - Filtro de Palabras -->
+        <div class="section">
+            <h2>8️⃣ Caso Práctico Completo: Filtro de Palabras Prohibidas</h2>
+            <p>El ejemplo más completo de la clase</p>
+
+            <div class="code-example">
+                <pre><span class="keyword">let</span> mensaje = <span class="string">'recorcholis, hoy lunes no podre jugar'</span>
+<span class="keyword">let</span> palabras_prohibidas = [<span class="string">'lunes'</span>, <span class="string">'trabajar'</span>, <span class="string">'recorcholis'</span>]
+
+<span class="keyword">let</span> tiene_palabra_prohibida = <span class="keyword">false</span>
+
+<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i < palabras_prohibidas.length; i++) {
+    <span class="keyword">let</span> palabra_prohibida = palabras_prohibidas[i]
+    <span class="keyword">if</span> (mensaje.<span class="function">includes</span>(palabra_prohibida)) {
+        tiene_palabra_prohibida = <span class="keyword">true</span>
+    }
+}
+
+<span class="keyword">if</span> (tiene_palabra_prohibida) {
+    <span class="function">console.log</span>(<span class="string">"No puedes escribir ese mensaje"</span>)
+} <span class="keyword">else</span> {
+    <span class="function">console.log</span>(<span class="string">'Mensaje subido exitosamente'</span>)
+}</pre>
+            </div>
+
+            <div class="interactive-zone">
+                <label>Escribe un mensaje: </label><br>
+                <input type="text" id="mensaje-test" style="width: 400px;" placeholder="Escribe tu mensaje aquí">
+                <button onclick="ejemplo_filtro()">▶ Verificar Mensaje</button>
+                <div id="output-filtro" class="output"></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 9: Ejercicios -->
+        <div class="section">
+            <h2>9️⃣ Ejercicios Propuestos (De la clase)</h2>
+            
+            <h3>Ejercicio 1: verificarMensaje(mensaje)</h3>
+            <p>Retorna un objeto con resultado y palabras_encontradas</p>
+            <button onclick="ejercicio_verificarMensaje()">▶ Ver Solución</button>
+            <div id="output-ejercicio1" class="output"></div>
+
+            <h3>Ejercicio 2: agregarPalabraProhibida(nueva_palabra)</h3>
+            <p>Agrega palabra y retorna true/false si ya existía</p>
+            <button onclick="ejercicio_agregarPalabra()">▶ Ver Solución</button>
+            <div id="output-ejercicio2" class="output"></div>
+
+            <h3>Ejercicio 3: eliminarPalabraProhibida(palabra)</h3>
+            <p>Elimina palabra y retorna true/false según exista</p>
+            <button onclick="ejercicio_eliminarPalabra()">▶ Ver Solución</button>
+            <div id="output-ejercicio3" class="output"></div>
+        </div>
+    </div>
+
+    <script>
+        // EJEMPLO 1: BÁSICO
+        function ejemplo_basico() {
+            let output = document.getElementById('output-basico');
+            output.innerHTML = '';
+            
+            console.log('=== EJEMPLO BÁSICO ===');
+            let nombres = ['pepe', 'juan', 'maria'];
+            
+            log(output, `Array completo: [${nombres.join(', ')}]`);
+            log(output, `Primer elemento (índice 0): ${nombres[0]}`);
+            log(output, `Segundo elemento (índice 1): ${nombres[1]}`);
+            log(output, `Tercer elemento (índice 2): ${nombres[2]}`);
+            
+            console.log('Array:', nombres);
+            console.log('Primer elemento:', nombres[0]);
+        }
+
+        // EJEMPLO 2: ÍNDICES
+        function ejemplo_indices() {
+            let output = document.getElementById('output-indices');
+            output.innerHTML = '';
+            
+            console.log('=== EJEMPLO ÍNDICES ===');
+            let operaciones_disponibles = ['+', '-', '*', '/'];
+            
+            log(output, `Array de operaciones: [${operaciones_disponibles.join(', ')}]`);
+            log(output, `Índice 0: ${operaciones_disponibles[0]}`);
+            log(output, `Índice 1: ${operaciones_disponibles[1]}`);
+            log(output, `Índice 2: ${operaciones_disponibles[2]}`);
+            log(output, `Índice 3: ${operaciones_disponibles[3]}`);
+            
+            let indice_multiplicacion = 2;
+            log(output, `El símbolo de multiplicación está en índice ${indice_multiplicacion}: ${operaciones_disponibles[indice_multiplicacion]}`, 'success');
+            
+            console.log('El simbolo de multiplicacion es: ' + operaciones_disponibles[indice_multiplicacion]);
+        }
+
+        // EJEMPLO 3: TIPOS DE DATOS
+        function ejemplo_tipos() {
+            let output = document.getElementById('output-tipos');
+            output.innerHTML = '';
+            
+            console.log('=== EJEMPLO TIPOS DE DATOS ===');
+            
+            // Array numérico
+            let notas_trimestre = [9, 6, 8];
+            log(output, `Array numérico: [${notas_trimestre.join(', ')}]`);
+            console.log('Notas:', notas_trimestre);
+            
+            // Array mixto
+            let array_raro = [90, 'pepe'];
+            log(output, `Array mixto: [${array_raro.join(', ')}]`);
+            console.log('Array mixto:', array_raro);
+            
+            // Array de objetos
+            let personas_que_me_caen_mal = [
+                { nombre: 'pepesito', edad: 43 },
+                { nombre: 'maria', edad: 32 }
+            ];
+            
+            log(output, `Array de objetos (${personas_que_me_caen_mal.length} personas):`);
+            let maria = personas_que_me_caen_mal[1];
+            log(output, `  - Persona en índice 1: ${maria.nombre}, edad: ${maria.edad}`, 'success');
+            
+            console.log('Personas:', personas_que_me_caen_mal);
+            console.log('Edad de Maria:', maria.edad);
+        }
+
+        // EJEMPLO 4: LENGTH
+        function ejemplo_length() {
+            let output = document.getElementById('output-length');
+            output.innerHTML = '';
+            
+            console.log('=== EJEMPLO .length ===');
+            
+            let nombres = ['pepe', 'juan', 'maria'];
+            log(output, `Array: [${nombres.join(', ')}]`);
+            log(output, `nombres.length = ${nombres.length}`, 'success');
+            
+            let vacio = [];
+            log(output, `Array vacío.length = ${vacio.length}`);
+            
+            let personas_que_me_caen_mal = [
+                { nombre: 'pepesito', edad: 43 },
+                { nombre: 'maria', edad: 32 }
+            ];
+            log(output, `Array de objetos.length = ${personas_que_me_caen_mal.length}`, 'success');
+            
+            console.log('Length de nombres:', nombres.length);
+            console.log('Length de personas:', personas_que_me_caen_mal.length);
+        }
+
+        // EJEMPLO 5: PUSH
+        let array_push = ['manzana', 'banana'];
+        function ejemplo_push() {
+            let output = document.getElementById('output-push');
+            let input = document.getElementById('push-input');
+            let valor = input.value || 'naranja';
+            
+            output.innerHTML = '';
+            console.log('=== EJEMPLO .push() ===');
+            
+            log(output, `Array ANTES: [${array_push.join(', ')}]`);
+            log(output, `Ejecutando: array_push.push('${valor}')`, 'warning');
+            
+            array_push.push(valor);
+            
+            log(output, `Array DESPUÉS: [${array_push.join(', ')}]`, 'success');
+            log(output, `Longitud: ${array_push.length}`);
+            
+            console.log('Array después de push:', array_push);
+            input.value = '';
+        }
+
+        // EJEMPLO 6: POP
+        let array_pop = ['uno', 'dos', 'tres'];
+        function ejemplo_pop() {
+            let output = document.getElementById('output-pop');
+            output.innerHTML = '';
+            
+            console.log('=== EJEMPLO .pop() ===');
+            
+            log(output, `Array ANTES: [${array_pop.join(', ')}]`);
+            log(output, `Ejecutando: array_pop.pop()`, 'warning');
+            
+            let eliminado = array_pop.pop();
+            
+            log(output, `Elemento eliminado: '${eliminado}'`, 'error');
+            log(output, `Array DESPUÉS: [${array_pop.join(', ')}]`, 'success');
+            
+            console.log('Array después de pop:', array_pop);
+            console.log('Elemento eliminado:', eliminado);
+        }
+
+        // EJEMPLO 7: SHIFT
+        let array_shift = ['primero', 'segundo', 'tercero'];
+        function ejemplo_shift() {
+            let output = document.getElementById('output-shift');
+            output.innerHTML = '';
+            
+            console.log('=== EJEMPLO .shift() ===');
+            
+            log(output, `Array ANTES: [${array_shift.join(', ')}]`);
+            log(output, `Ejecutando: array_shift.shift()`, 'warning');
+            
+            let eliminado = array_shift.shift();
+            
+            log(output, `Elemento eliminado: '${eliminado}'`, 'error');
+            log(output, `Array DESPUÉS: [${array_shift.join(', ')}]`, 'success');
+            
+            console.log('Array después de shift:', array_shift);
+        }
+
+        // EJEMPLO 8: UNSHIFT
+        let array_unshift = ['medio', 'final'];
+        function ejemplo_unshift() {
+            let output = document.getElementById('output-unshift');
+            output.innerHTML = '';
+            
+            console.log('=== EJEMPLO .unshift() ===');
+            
+            log(output, `Array ANTES: [${array_unshift.join(', ')}]`);
+            log(output, `Ejecutando: array_unshift.unshift('inicio')`, 'warning');
+            
+            array_unshift.unshift('inicio');
+            
+            log(output, `Array DESPUÉS: [${array_unshift.join(', ')}]`, 'success');
+            
+            console.log('Array después de unshift:', array_unshift);
+        }
+
+        // EJEMPLO 9: SPLICE
+        function ejemplo_splice() {
+            let output = document.getElementById('output-splice');
+            output.innerHTML = '';
+            
+            console.log('=== EJEMPLO .splice() ===');
+            
+            // Ejemplo 1: Eliminar juan
+            let nombres = ['pepe', 'juan', 'maria'];
+            log(output, `EJEMPLO 1: Eliminar a 'juan'`);
+            log(output, `Array original: [${nombres.join(', ')}]`);
+            
+            let indice_de_juan = nombres.indexOf('juan');
+            log(output, `Índice de 'juan': ${indice_de_juan}`, 'warning');
+            log(output, `Ejecutando: nombres.splice(${indice_de_juan}, 1)`);
+            
+            nombres.splice(indice_de_juan, 1);
+            log(output, `Array resultante: [${nombres.join(', ')}]`, 'success');
+            
+            console.log('Nombres después de eliminar juan:', nombres);
+            
+            // Ejemplo 2: Agregar y eliminar
+            let colores = ['rojo', 'verde', 'azul', 'amarillo'];
+            log(output, `\nEJEMPLO 2: Reemplazar elementos`);
+            log(output, `Array original: [${colores.join(', ')}]`);
+            log(output, `Ejecutando: colores.splice(1, 2, 'negro', 'blanco')`);
+            
+            colores.splice(1, 2, 'negro', 'blanco');
+            log(output, `Array resultante: [${colores.join(', ')}]`, 'success');
+            
+            console.log('Colores después de splice:', colores);
+        }
+
+        // EJEMPLO 10: indexOf
+        function ejemplo_indexOf() {
+            let output = document.getElementById('output-indexOf');
+            output.innerHTML = '';
+            
+            console.log('=== EJEMPLO .indexOf() ===');
+            
+            let nombres = ['pepe', 'juan', 'maria', 'pedro'];
+            log(output, `Array: [${nombres.join(', ')}]`);
+            
+            let indice_juan = nombres.indexOf('juan');
+            log(output, `indexOf('juan') = ${indice_juan}`, 'success');
+            
+            let indice_maria = nombres.indexOf('maria');
+            log(output, `indexOf('maria') = ${indice_maria}`, 'success');
+            
+            let indice_inexistente = nombres.indexOf('carlos');
+            log(output, `indexOf('carlos') = ${indice_inexistente} (no existe)`, 'error');
+            
+            console.log('Índice de juan:', indice_juan);
+            console.log('Índice de elemento inexistente:', indice_inexistente);
+        }
+
+        // EJEMPLO 11: includes
+        function ejemplo_includes() {
+            let output = document.getElementById('output-includes');
+            output.innerHTML = '';
+            
+            console.log('=== EJEMPLO .includes() ===');
+            
+            // Ejemplo de la clase
+            let url = ['http://', 'musimundo.com', '/page/1'];
+            log(output, `Array URL: [${url.join(', ')}]`);
+            
+            let is_http_url = url.includes('http://');
+            log(output, `¿Incluye 'http://'? ${is_http_url}`, 'success');
+            
+            let is_https = url.includes('https://');
+            log(output, `¿Incluye 'https://'? ${is_https}`, 'error');
+            
+            console.log('¿Es HTTP?:', is_http_url);
+            console.log('¿Es HTTPS?:', is_https);
+        }
+
+        // EJEMPLO 12: Eliminar por ID
+        let productos = [
+            { nombre: 'TV samsung 32 pulgadas', precio: 3000, id: 1 },
+            { nombre: 'TV samsung 40 pulgadas', precio: 4000, id: 2 },
+            { nombre: 'TV samsung 50 pulgadas', precio: 5000, id: 3 },
+            { nombre: 'TV samsung 60 pulgadas', precio: 6000, id: 4 },
+            { nombre: 'TV samsung 70 pulgadas', precio: 7000, id: 5 }
+        ];
+
+        function eliminarProductoPorId(id) {
+            for (let i = 0; i < productos.length; i++) {
+                let producto = productos[i];
+                if (id === producto.id) {
+                    let posicion_producto = productos.indexOf(producto);
+                    productos.splice(posicion_producto, 1);
+                    return true;
+                }
+            }
+            return null;
+        }
+
+        function ejemplo_eliminarPorId() {
+            let output = document.getElementById('output-eliminar');
+            let id = parseInt(document.getElementById('id-eliminar').value);
+            
+            output.innerHTML = '';
+            console.log('=== ELIMINAR PRODUCTO POR ID ===');
+            
+            log(output, `Productos ANTES (${productos.length} productos):`);
+            productos.forEach(p => {
+                log(output, `  ID ${p.id}: ${p.nombre} - ${p.precio}`);
+            });
+            
+            log(output, `\nIntentando eliminar producto con ID: ${id}`, 'warning');
+            let resultado = eliminarProductoPorId(id);
+            
+            if (resultado) {
+                log(output, `✓ Producto eliminado exitosamente`, 'success');
+                log(output, `\nProductos DESPUÉS (${productos.length} productos):`);
+                productos.forEach(p => {
+                    log(output, `  ID ${p.id}: ${p.nombre} - ${p.precio}`);
+                });
+            } else {
+                log(output, `✗ Producto no encontrado`, 'error');
+            }
+            
+            console.log('Resultado:', resultado);
+            console.log('Productos actuales:', productos);
+        }
+
+        // EJEMPLO 13: Filtro de palabras prohibidas
+        let palabras_prohibidas = ['lunes', 'trabajar', 'recorcholis'];
+
+        function ejemplo_filtro() {
+            let output = document.getElementById('output-filtro');
+            let mensaje = document.getElementById('mensaje-test').value.toLowerCase();
+            
+            output.innerHTML = '';
+            console.log('=== FILTRO DE PALABRAS PROHIBIDAS ===');
+            
+            log(output, `Mensaje a verificar: "${mensaje}"`);
+            log(output, `Palabras prohibidas: [${palabras_prohibidas.join(', ')}]`);
+            
+            let tiene_palabra_prohibida = false;
+            let palabras_encontradas = [];
+            
+            log(output, `\nVerificando palabra por palabra...`, 'warning');
+            
+            for (let i = 0; i < palabras_prohibidas.length; i++) {
+                let palabra_prohibida = palabras_prohibidas[i];
+                log(output, `  Buscando '${palabra_prohibida}'...`);
+                
+                if (mensaje.includes(palabra_prohibida)) {
+                    tiene_palabra_prohibida = true;
+                    palabras_encontradas.push(palabra_prohibida);
+                    log(output, `    ✗ ENCONTRADA!`, 'error');
+                } else {
+                    log(output, `    ✓ No encontrada`);
+                }
+            }
+            
+            log(output, `\n═══════════════════════════════`);
+            if (tiene_palabra_prohibida) {
+                log(output, `❌ No puedes escribir ese mensaje`, 'error');
+                log(output, `Palabras prohibidas encontradas: ${palabras_encontradas.join(', ')}`, 'error');
+            } else {
+                log(output, `✅ Mensaje subido exitosamente`, 'success');
+            }
+            
+            console.log('Tiene palabra prohibida:', tiene_palabra_prohibida);
+            console.log('Palabras encontradas:', palabras_encontradas);
+        }
+
+        // EJERCICIO 1: verificarMensaje
+        function verificarMensaje(mensaje) {
+            mensaje = mensaje.toLowerCase();
+            let palabras_encontradas = [];
+            let resultado = true;
+            
+            for (let i = 0; i < palabras_prohibidas.length; i++) {
+                let palabra_prohibida = palabras_prohibidas[i];
+                if (mensaje.includes(palabra_prohibida)) {
+                    resultado = false;
+                    palabras_encontradas.push(palabra_prohibida);
+                }
+            }
+            
+            return {
+                resultado: resultado,
+                palabras_encontradas: palabras_encontradas
+            };
+        }
+
+        function ejercicio_verificarMensaje() {
+            let output = document.getElementById('output-ejercicio1');
+            output.innerHTML = '';
+            
+            console.log('=== EJERCICIO 1: verificarMensaje ===');
+            
+            log(output, `CÓDIGO DE LA FUNCIÓN:`);
+            log(output, `function verificarMensaje(mensaje) {`);
+            log(output, `    mensaje = mensaje.toLowerCase();`);
+            log(output, `    let palabras_encontradas = [];`);
+            log(output, `    let resultado = true;`);
+            log(output, `    `);
+            log(output, `    for (let i = 0; i < palabras_prohibidas.length; i++) {`);
+            log(output, `        let palabra_prohibida = palabras_prohibidas[i];`);
+            log(output, `        if (mensaje.includes(palabra_prohibida)) {`);
+            log(output, `            resultado = false;`);
+            log(output, `            palabras_encontradas.push(palabra_prohibida);`);
+            log(output, `        }`);
+            log(output, `    }`);
+            log(output, `    return { resultado, palabras_encontradas };`);
+            log(output, `}`, 'warning');
+            
+            log(output, `\nPRUEBAS:`);
+            
+            let test1 = verificarMensaje('Hola que tal, todo bien');
+            log(output, `Mensaje: "Hola que tal, todo bien"`);
+            log(output, `Resultado: ${JSON.stringify(test1)}`, 'success');
+            
+            let test2 = verificarMensaje('Hoy es lunes y tengo que trabajar');
+            log(output, `\nMensaje: "Hoy es lunes y tengo que trabajar"`);
+            log(output, `Resultado: ${JSON.stringify(test2)}`, 'error');
+            
+            console.log('Test 1:', test1);
+            console.log('Test 2:', test2);
+        }
+
+        // EJERCICIO 2: agregarPalabraProhibida
+        function agregarPalabraProhibida(nueva_palabra) {
+            nueva_palabra = nueva_palabra.toLowerCase();
+            
+            if (palabras_prohibidas.includes(nueva_palabra)) {
+                return false;
+            }
+            
+            palabras_prohibidas.push(nueva_palabra);
+            return true;
+        }
+
+        function ejercicio_agregarPalabra() {
+            let output = document.getElementById('output-ejercicio2');
+            output.innerHTML = '';
+            
+            console.log('=== EJERCICIO 2: agregarPalabraProhibida ===');
+            
+            log(output, `CÓDIGO DE LA FUNCIÓN:`);
+            log(output, `function agregarPalabraProhibida(nueva_palabra) {`);
+            log(output, `    nueva_palabra = nueva_palabra.toLowerCase();`);
+            log(output, `    `);
+            log(output, `    if (palabras_prohibidas.includes(nueva_palabra)) {`);
+            log(output, `        return false; // Ya existe`);
+            log(output, `    }`);
+            log(output, `    `);
+            log(output, `    palabras_prohibidas.push(nueva_palabra);`);
+            log(output, `    return true; // Agregada exitosamente`);
+            log(output, `}`, 'warning');
+            
+            log(output, `\nPRUEBAS:`);
+            log(output, `Array ANTES: [${palabras_prohibidas.join(', ')}]`);
+            
+            let test1 = agregarPalabraProhibida('spam');
+            log(output, `\nagregarPalabraProhibida('spam') = ${test1}`, 'success');
+            log(output, `Array: [${palabras_prohibidas.join(', ')}]`);
+            
+            let test2 = agregarPalabraProhibida('spam');
+            log(output, `\nagregarPalabraProhibida('spam') = ${test2} (ya existe)`, 'error');
+            log(output, `Array: [${palabras_prohibidas.join(', ')}]`);
+            
+            console.log('Test agregar palabra nueva:', test1);
+            console.log('Test agregar palabra existente:', test2);
+        }
+
+        // EJERCICIO 3: eliminarPalabraProhibida
+        function eliminarPalabraProhibida(palabra_a_eliminar) {
+            palabra_a_eliminar = palabra_a_eliminar.toLowerCase();
+            let indice = palabras_prohibidas.indexOf(palabra_a_eliminar);
+            
+            if (indice === -1) {
+                return false; // No está en el array
+            }
+            
+            palabras_prohibidas.splice(indice, 1);
+            return true; // Eliminada exitosamente
+        }
+
+        function ejercicio_eliminarPalabra() {
+            let output = document.getElementById('output-ejercicio3');
+            output.innerHTML = '';
+            
+            console.log('=== EJERCICIO 3: eliminarPalabraProhibida ===');
+            
+            log(output, `CÓDIGO DE LA FUNCIÓN:`);
+            log(output, `function eliminarPalabraProhibida(palabra_a_eliminar) {`);
+            log(output, `    palabra_a_eliminar = palabra_a_eliminar.toLowerCase();`);
+            log(output, `    let indice = palabras_prohibidas.indexOf(palabra_a_eliminar);`);
+            log(output, `    `);
+            log(output, `    if (indice === -1) {`);
+            log(output, `        return false; // No está en el array`);
+            log(output, `    }`);
+            log(output, `    `);
+            log(output, `    palabras_prohibidas.splice(indice, 1);`);
+            log(output, `    return true; // Eliminada exitosamente`);
+            log(output, `}`, 'warning');
+            
+            log(output, `\nPRUEBAS:`);
+            log(output, `Array ANTES: [${palabras_prohibidas.join(', ')}]`);
+            
+            let test1 = eliminarPalabraProhibida('spam');
+            log(output, `\neliminarPalabraProhibida('spam') = ${test1}`, 'success');
+            log(output, `Array: [${palabras_prohibidas.join(', ')}]`);
+            
+            let test2 = eliminarPalabraProhibida('noexiste');
+            log(output, `\neliminarPalabraProhibida('noexiste') = ${test2}`, 'error');
+            log(output, `Array: [${palabras_prohibidas.join(', ')}]`);
+            
+            console.log('Test eliminar existente:', test1);
+            console.log('Test eliminar inexistente:', test2);
+        }
+
+        // Función helper para logging
+        function log(elemento, texto, tipo = '') {
+            let div = document.createElement('div');
+            div.className = 'output-line';
+            if (tipo) div.classList.add(tipo);
+            div.textContent = texto;
+            elemento.appendChild(div);
+        }
+
+        // Log inicial en consola
+        console.log('%c ╔════════════════════════════════════════╗', 'color: #4ec9b0; font-weight: bold');
+        console.log('%c ║   ARRAYS EN JAVASCRIPT - PROFUNDIZACIÓN  ║', 'color: #4ec9b0; font-weight: bold');
+        console.log('%c ╚════════════════════════════════════════╝', 'color: #4ec9b0; font-weight: bold');
+        console.log('%c Todos los ejemplos están basados en la clase', 'color: #9cdcfe');
+        console.log('%c Haz clic en los botones para ejecutar ejemplos', 'color: #dcdcaa');
+        console.log('%c Cada ejemplo también imprime información aquí en la consola', 'color: #ce9178');
+        console.log(' ');
+    </script>
+</body>
+</html>
