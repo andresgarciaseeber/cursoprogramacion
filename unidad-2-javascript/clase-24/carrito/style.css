@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#cart-conteiner div {
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f8f9fa;
+}
+
+#cart-conteiner h3 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+button {
+    padding: 8px 15px;
+    border: 2px solid #007bff;
+    background-color: white;
+    color: #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.contador-productos {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 2px solid #007bff;
+    background-color: white;
+    border-radius: 4px;
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+.total-section {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+}
+
+#button-eliminar-carrito {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+}
+
+#button-eliminar-carrito:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+
+/* Estilos del Modal */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+}
+
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.btn-close:hover {
+    background-color: #c82333;
+}
+
+.close {
+    display: none;
+}
+
+.modal h2 {
+    color: #dc3545;
+    margin-top: 0;
+}
+
+.modal p {
+    color: #666;
+    line-height: 1.5;
+}
