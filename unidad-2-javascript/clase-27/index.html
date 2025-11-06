@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de Personas - COCO-SSD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Detector de Personas</h1>
+        <p class="subtitle">Sube una imagen y detecta cuántas personas hay en ella</p>
+
+        <div class="upload-section" id="upload-section">
+            <label for="file-input" class="upload-label">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">Haz clic o arrastra una imagen aquí</div>
+                <div class="upload-subtext">Formatos: JPG, PNG, GIF</div>
+            </label>
+            <input type="file" id="file-input" accept="image/*">
+        </div>
+
+        <div id="image-preview-container">
+            <img id="image-preview" alt="Preview">
+        </div>
+
+        <button id="execute-model">🚀 Clasificar Imagen</button>
+
+        <div id="result"></div>
+    </div>
+
+    <!-- TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <!-- COCO-SSD Model -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <!-- Script principal -->
+    <script src="script.js"></script>
+</body>
+</html>

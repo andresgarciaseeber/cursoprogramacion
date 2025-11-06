@@ -1,22 +1,35 @@
+// Carrito de productos de Boca Juniors
 const cart = [
     {
         id: 1,
-        title: "mouse gamer",
-        price: 4000,
-        quantity: 2 
+        title: "Camiseta Titular Boca Juniors",
+        price: 25000,
+        quantity: 1
     },
     {
         id: 2,
-        title: "PC Dell",
-        price: 40000,
-        quantity: 6
+        title: "Camiseta Suplente Boca Juniors",
+        price: 23000,
+        quantity: 1
     },
     {
         id: 3,
-        title: "Monitor 24\"",
-        price: 6000,
-        quantity: 6 
+        title: "Campera Boca Juniors",
+        price: 35000,
+        quantity: 1
     },
+    {
+        id: 4,
+        title: "Gorra Boca Juniors",
+        price: 8000,
+        quantity: 1
+    },
+    {
+        id: 5,
+        title: "Bufanda Boca Juniors",
+        price: 6000,
+        quantity: 1
+    }
 ]
 
 const cart_conteiner = document.getElementById('cart-conteiner')
@@ -49,10 +62,10 @@ function renderModal(title, text) {
         <h2>${title}</h2>
         <p>${text}</p>
     `
-    
+
     const btnCloseModal = document.querySelector('.btn-close');
     btnCloseModal.addEventListener('click', handleCloseModal);
-    
+
     handleOpenModal();
 }
 
@@ -70,8 +83,8 @@ function renderizarCarrito() {
         plantilla_html = plantilla_html + `
             <div>
                 <h3>${product.title}</h3>
-                    <p>Precio unitario:${product.price}</p>
-                    <p>Precio:${product.price * product.quantity}</p>
+                    <p>Precio unitario: $${product.price}</p>
+                    <p>Subtotal: $${product.price * product.quantity}</p>
                 <button class="btn-decrementar" data-product_id="${product.id}">-</button>
                 <p class="contador-productos">${product.quantity}</p>
                 <button class="btn-incrementar" data-product_id="${product.id}">+</button>
@@ -85,21 +98,21 @@ function renderizarCarrito() {
 
     for (const btnI of btn_incrementar) {
         btnI.addEventListener(
-            "click", 
+            "click",
             incrementProductQuantity
         )
     }
     const btn_decrementar = cart_conteiner.getElementsByClassName('btn-decrementar')
     for (const btnD of btn_decrementar) {
         btnD.addEventListener(
-            "click", 
+            "click",
             decrementProductQuantity
         )
     }
     const btn_eliminar = cart_conteiner.getElementsByClassName('btn-eliminar')
     for (const btnE of btn_eliminar) {
         btnE.addEventListener(
-            "click", 
+            "click",
             handleDeleteProduct
         )
     }
@@ -112,12 +125,12 @@ function incrementProductQuantity(event) {
         if (simularFallo(10)) {
             throw new Error("Fallo del servidor al incrementar")
         }
-        
+
         const product_id = Number(event.target.dataset.product_id)
         const product = findProductById(product_id)
         product.quantity = product.quantity + 1
         renderizarCarrito()
-        
+
     } catch (error) {
         renderModal(
             "Fallo del servidor",
@@ -132,7 +145,7 @@ function decrementProductQuantity(event) {
         if (simularFallo(30)) {
             throw new Error("Fallo del servidor al decrementar")
         }
-        
+
         const product_id = Number(event.target.dataset.product_id)
         const product = findProductById(product_id)
         if (product.quantity <= 1) {
@@ -141,7 +154,7 @@ function decrementProductQuantity(event) {
             product.quantity = product.quantity - 1
         }
         renderizarCarrito()
-        
+
     } catch (error) {
         renderModal(
             "Fallo del servidor",
@@ -156,10 +169,10 @@ function handleDeleteProduct(event) {
         if (simularFallo(80)) {
             throw new Error("Fallo del servidor al eliminar")
         }
-        
+
         const product_id = Number(event.target.dataset.product_id)
         deleteProductById(product_id)
-        
+
     } catch (error) {
         renderModal(
             "Fallo del servidor",
@@ -197,4 +210,5 @@ function calcularTotal() {
 
 button_eliminar_carrito.addEventListener("click", eliminarCarrito)
 
+// Renderizar carrito al cargar la página
 renderizarCarrito()
