@@ -1,0 +1,62 @@
+=========================================
+SISTEMA DE EVALUACIÓN DE PROYECTOS MUSICALES
+Archivos Listos para Subir por FTP
+=========================================
+
+INSTRUCCIONES DE INSTALACIÓN:
+
+1. SUBIR ARCHIVOS
+   - Sube TODO el contenido de esta carpeta a tu servidor web
+   - Ruta sugerida: /public_html/evaluacion-proyectos/
+   - Asegúrate de subir también el archivo .htaccess
+
+2. CONFIGURAR BACKEND
+   - En tu servidor, asegúrate que el backend PHP esté accesible
+   - Ubicación del backend: /proyectos-musicales/api.php
+   - Si la ruta es diferente, actualiza .env.production y reconstruye
+
+3. VERIFICAR PERMISOS
+   - .htaccess debe tener permisos 644
+   - Carpetas: 755
+   - Archivos: 644
+
+4. PROBAR LA APLICACIÓN
+   - Accede a: https://tu-dominio.com/evaluacion-proyectos/
+   - Verifica que la API responda correctamente
+   - Prueba el ranking y las evaluaciones
+
+ESTRUCTURA DE ARCHIVOS:
+.
+├── index.html              # Página principal
+├── .htaccess              # Configuración de rutas (IMPORTANTE)
+├── assets/
+│   ├── index-[hash].js    # JavaScript optimizado
+│   ├── index-[hash].css   # Estilos minificados
+│   └── ...
+└── vite.svg               # Favicon
+
+REQUISITOS DEL SERVIDOR:
+- PHP 7.4 o superior
+- MySQL 5.7 o superior
+- mod_rewrite habilitado (Apache)
+- CORS configurado en api.php
+
+SOLUCIÓN DE PROBLEMAS:
+
+- Error 404 en rutas:
+  Verifica que mod_rewrite esté activo y .htaccess esté presente
+
+- API no responde:
+  Revisa la URL en la configuración del build (.env.production)
+  Asegúrate que CORS esté habilitado en api.php
+
+- Página en blanco:
+  Abre la consola del navegador (F12) para ver errores
+  Verifica que los assets se carguen correctamente
+
+CONTACTO:
+Para soporte técnico, consulta DEPLOY.md en el proyecto original.
+
+=========================================
+Generado: 2025-12-04
+=========================================

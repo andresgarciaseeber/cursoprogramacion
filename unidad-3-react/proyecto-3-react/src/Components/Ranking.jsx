@@ -67,6 +67,7 @@ export default function Ranking() {
           <thead>
             <tr>
               <th>Pos.</th>
+              <th>ID</th>
               <th>Proyecto Musical</th>
               <th>Artista</th>
               <th>Ubicación</th>
@@ -84,6 +85,9 @@ export default function Ranking() {
                   {index === 0 && <i className="fas fa-crown gold"></i>}
                   {index === 1 && <i className="fas fa-medal silver"></i>}
                   {index === 2 && <i className="fas fa-medal bronze"></i>}
+                </td>
+                <td>
+                  <small className="project-id">#{proyecto.id}</small>
                 </td>
                 <td>
                   <strong>{proyecto.proyecto_musical}</strong>

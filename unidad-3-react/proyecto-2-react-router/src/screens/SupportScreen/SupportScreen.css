@@ -1,0 +1,156 @@
+.support-screen {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.support-screen header {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+}
+
+.support-screen header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.support-screen header p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+}
+
+.support-options {
+  margin-bottom: 3rem;
+}
+
+.support-options h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.support-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  border-top: 4px solid #f093fb;
+}
+
+.support-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(240, 147, 251, 0.2);
+}
+
+.support-card h3 {
+  font-size: 1.5rem;
+  color: #f5576c;
+  margin-bottom: 1rem;
+}
+
+.support-card p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.support-card button {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  width: 100%;
+}
+
+.faq {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+.faq h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border-left: 4px solid #f093fb;
+}
+
+.faq-item h4 {
+  color: #f5576c;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.faq-item p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.emergency {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  padding: 3rem;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+
+.emergency h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.emergency p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.emergency-button {
+  background: white;
+  color: #ff6b6b;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  font-weight: bold;
+}
+
+.emergency-button:hover {
+  background: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .support-screen header h1 {
+    font-size: 2rem;
+  }
+
+  .support-grid {
+    grid-template-columns: 1fr;
+  }
+}

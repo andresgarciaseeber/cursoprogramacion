@@ -194,3 +194,14 @@ small {
   color: #7f8c8d;
   font-size: 0.85rem;
 }
+
+.project-id {
+  display: inline-block;
+  padding: 4px 8px;
+  background: #ecf0f1;
+  color: #34495e;
+  border-radius: 4px;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}

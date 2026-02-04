@@ -5,7 +5,8 @@
 
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost/proyectos-musicales';
+// Usa variable de entorno según el ambiente (desarrollo/producción)
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost/proyectos-musicales';
 
 class ApiService {
   constructor() {
