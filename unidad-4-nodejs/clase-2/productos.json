@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "nombre": "Laptop HP",
+    "precio": 850000,
+    "stock": 15,
+    "categoria": "Computadoras"
+  },
+  {
+    "id": 2,
+    "nombre": "Mouse Logitech",
+    "precio": 25000,
+    "stock": 50,
+    "categoria": "Periféricos"
+  },
+  {
+    "id": 3,
+    "nombre": "Teclado Mecánico",
+    "precio": 45000,
+    "stock": 30,
+    "categoria": "Periféricos"
+  },
+  {
+    "id": 4,
+    "nombre": "Monitor Samsung 24\"",
+    "precio": 180000,
+    "stock": 20,
+    "categoria": "Monitores"
+  },
+  {
+    "id": 5,
+    "nombre": "Auriculares Bluetooth",
+    "precio": 35000,
+    "stock": 40,
+    "categoria": "Audio"
+  }
+]

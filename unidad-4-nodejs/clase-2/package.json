@@ -1,0 +1,16 @@
+{
+  "name": "clase-2",
+  "version": "1.0.0",
+  "description": "Clase 2 del curso de Node.js",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "dev": "node --watch src/main.js",
+    "ffcc": "node src/ferrocarriles.js",
+    "ffcc:dev": "node --watch src/ferrocarriles.js",
+    "generar": "node src/services/reportes/reportes.generator.js"
+  },
+  "keywords": ["nodejs", "curso", "depc"],
+  "author": "",
+  "license": "ISC"
+}
